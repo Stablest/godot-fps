@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://f7ige4th087a"]
+
+[ext_resource type="Script" uid="uid://di154mnof6aox" path="res://core/player/components/camera/PlayerCamera.cs" id="1_bq184"]
+[ext_resource type="Script" uid="uid://dmid6kj38806k" path="res://core/player/Player.cs" id="1_h46vi"]
+[ext_resource type="PackedScene" uid="uid://wqfcito6rjwi" path="res://assets/3d/character/character.glb" id="3_ll17t"]
+[ext_resource type="Shader" uid="uid://cj8ohfww2ak5x" path="res://core/player/components/camera/crosshair_shader.gdshader" id="4_qjudb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5bu2x"]
+height = 1.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xttum"]
+shader = ExtResource("4_qjudb")
+shader_parameter/crosshair_color = Color(0.209745, 0.683926, 0.148931, 1)
+shader_parameter/thickness = 0.02
+shader_parameter/length = 0.3
+shader_parameter/gap = 0.1
+
+[sub_resource type="Gradient" id="Gradient_qjudb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xttum"]
+gradient = SubResource("Gradient_qjudb")
+
+[node name="Character0" instance=ExtResource("3_ll17t")]
+script = ExtResource("1_h46vi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.60419e-05, 0.863735, -0.00161219)
+shape = SubResource("CapsuleShape3D_5bu2x")
+
+[node name="Camera3D" type="Camera3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61629, -0.10225)
+near = 0.1
+far = 200.0
+script = ExtResource("1_bq184")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera3D" index="0"]
+material = SubResource("ShaderMaterial_xttum")
+position = Vector2(800, 450)
+texture = SubResource("GradientTexture2D_xttum")

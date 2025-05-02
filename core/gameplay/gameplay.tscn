@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://vg10hv3s5xvm"]
+
+[ext_resource type="Script" uid="uid://b5t1tybb4f85g" path="res://core/gameplay/Gameplay.cs" id="1_0225j"]
+[ext_resource type="PackedScene" uid="uid://f7ige4th087a" path="res://core/player/player.tscn" id="2_1ee4x"]
+[ext_resource type="Shader" uid="uid://tkp3pda1hpy6" path="res://core/gameplay/ground.tres" id="3_osevb"]
+[ext_resource type="PackedScene" uid="uid://cn0gde3uaxb8k" path="res://world/internal_wall.tscn" id="4_osevb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ee4x"]
+sky_top_color = Color(0.0773228, 0.462522, 0.708035, 1)
+sky_horizon_color = Color(0.822172, 0.836646, 0.807787, 1)
+
+[sub_resource type="Sky" id="Sky_imtvj"]
+sky_material = SubResource("ProceduralSkyMaterial_1ee4x")
+
+[sub_resource type="Environment" id="Environment_1ee4x"]
+background_mode = 2
+background_energy_multiplier = 1.03
+sky = SubResource("Sky_imtvj")
+ambient_light_source = 3
+ambient_light_color = Color(0.964569, 0.831761, 0.68043, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ee4x"]
+lightmap_size_hint = Vector2i(2002, 2002)
+size = Vector2(400, 400)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_osevb"]
+render_priority = 0
+shader = ExtResource("3_osevb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ee4x"]
+size = Vector3(400, 0, 400)
+
+[node name="Gameplay" type="Node3D"]
+script = ExtResource("1_0225j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ee4x")
+
+[node name="Player" parent="." instance=ExtResource("2_1ee4x")]
+transform = Transform3D(-1, -2.6077e-08, 2.98023e-08, -8.59133e-08, 1, -1.30385e-08, 0, 0, -1, 1.44216e-06, -6.19536e-07, 31.4841)
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_1ee4x")
+surface_material_override/0 = SubResource("ShaderMaterial_osevb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_1ee4x")
+
+[node name="InternalWall" parent="." instance=ExtResource("4_osevb")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 2, 1.25165, 3.4641)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 7)
+light_color = Color(0.796078, 0, 0, 1)
+light_energy = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999762, 0, -0.0218149, 0, 1, 0, 0.0218149, 0, -0.999762, -0.0463904, 4.17424, -2.12604)

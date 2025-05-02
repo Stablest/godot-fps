@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn0gde3uaxb8k"]
+
+[ext_resource type="PackedScene" uid="uid://bx5ffh4c0aw4m" path="res://assets/3d/internal_wall.glb" id="1_n6ejm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bpv84"]
+points = PackedVector3Array(-0.156441, -1.27939, -1.26934, 0.161019, 1.26004, 1.26934, 0.161019, 1.26004, -1.26934, 0.161019, -1.27939, 1.26934, -0.156441, 1.25979, 1.26934, 0.161019, -1.27939, -1.26934, -0.156441, -1.27939, 1.26934, -0.156441, 1.25979, -1.26934)
+
+[node name="InternalWall" instance=ExtResource("1_n6ejm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(-1, -3.25841e-07, 0, 3.25841e-07, -1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_bpv84")
