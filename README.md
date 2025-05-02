@@ -1,6 +1,6 @@
 # 🎯 Godot FPS Template (C#)
 
-A clean and modular first-person shooter (FPS) starter template built with **Godot Engine** and **C#**. This project provides a basic FPS controller with first-person camera, movement, and jumping, and is ready for extension with combat, AI, UI, and more.
+A clean and modular first-person shooter (FPS) starter template built with **Godot Engine** and **C#**. This project provides a basic FPS game template with first-person camera, movement, jumping, main menu and is ready for extension with combat, AI, UI, and more.
 
 ---
 
