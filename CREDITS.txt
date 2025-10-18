@@ -1,0 +1,29 @@
+====================================
+ CREDITS
+====================================
+
+This project template includes third-party assets licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+------------------------------------
+Universal UI Soundpack
+------------------------------------
+Created and distributed by:
+Nathan Gibson
+https://nathangibson.myportfolio.com
+
+License:
+Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+------------------------------------
+Usage Notice
+------------------------------------
+If you use this template and keep the included sounds from the Universal UI Soundpack,
+you must include the above attribution in your project documentation or credits.
+
+If you remove or replace the sounds, you may omit this notice.
+
+------------------------------------
+Additional Notes
+------------------------------------
+All other code and assets provided by this template are subject to the project's main LICENSE file.
